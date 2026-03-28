@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK3 Planning - Strategic Estate & Tax Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="foundation.html">Foundation</a></li>
+        <li><a href="planning.html" class="active">Planning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AK3 PLANNING</h1>
+      <div class="hero-tagline">ak3planning.com</div>
+      <p>Expert strategic planning services specializing in estate planning, tax strategy, and organizational structure optimization for complex family and business situations.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section class="about-section">
+      <h3>About AK3 Planning</h3>
+      <p>AK3 Planning LLC serves as the strategic planning arm of Al King III's portfolio, coordinating comprehensive planning across estate structure, tax optimization, and entity management. Our services integrate seamlessly with AK3 Family Office to ensure all strategic recommendations are implemented effectively and maintained over time.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+      <h2>Planning Services</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <!-- Estate Planning -->
+        <div class="service-card">
+          <h3>Estate Planning</h3>
+          <div class="category-list" style="margin: 0;">
+            <li>Revocable & Irrevocable Trust Strategy</li>
+            <li>Beneficiary Designation Review</li>
+            <li>Wealth Transfer Planning</li>
+            <li>Probate Avoidance</li>
+          </div>
+        </div>
+
+        <!-- Structure Optimization -->
+        <div class="service-card">
+          <h3>Structure Optimization</h3>
+          <div class="category-list" style="margin: 0;">
+            <li>LLC Formation & Management</li>
+            <li>Wyoming Purpose Trust</li>
+            <li>Dynasty Trust Evaluation</li>
+            <li>Private Family Trust Company</li>
+          </div>
+        </div>
+
+        <!-- Tax Strategy -->
+        <div class="service-card">
+          <h3>Tax Strategy</h3>
+          <div class="category-list" style="margin: 0;">
+            <li>Entity-Level Tax Planning</li>
+            <li>Trust Tax ID Management</li>
+            <li>Investment Titling Strategy</li>
+            <li>Multi-State Entity Compliance</li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="highlight-section">
+      <h3>Our Approach</h3>
+      <p>We believe that effective planning requires understanding not just the technical aspects of trusts, entities, and tax law, but also the family's values, goals, and long-term vision. Our planning services are tailored to each client's unique situation, coordinating with legal counsel, tax advisors, and financial professionals to ensure comprehensive, integrated strategies.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office Â· Real Estate Â· Foundation Â· Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
