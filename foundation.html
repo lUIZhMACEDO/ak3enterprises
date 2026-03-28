@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al King Family Foundation - Philanthropic Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="foundation.html" class="active">Foundation</a></li>
+        <li><a href="planning.html">Planning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AL KING FAMILY FOUNDATION</h1>
+      <div class="hero-tagline">alkingfoundation.org</div>
+      <p>Strategic philanthropy dedicated to creating lasting impact across health, education, veterans' causes, and community development initiatives.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Mission Section -->
+    <section class="mission">
+      <h2>Our Mission</h2>
+      <p>The Al King Family Foundation is committed to advancing the quality of life and creating opportunities for communities in need, with particular focus on rural America where the King family's roots run deep.</p>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="about-section">
+      <h3>Our Story</h3>
+      <p>Al King III grew up in rural Maine, where close-knit communities and strong family values shaped his worldview. Those formative years instilled a deep commitment to giving back to the communities and causes that matter most. The Al King Family Foundation represents the realization of that commitment, channeling resources and energy toward meaningful change across multiple sectors.</p>
+    </section>
+
+    <!-- Landmark Gift 2026 -->
+    <section class="highlight-section">
+      <h3>2026 Landmark Gift</h3>
+      <p><strong>FF Fire & Rescue Ambulance Donation: $367,600</strong></p>
+      <p style="margin-top: 1rem;">In recognition of the essential services provided by rural emergency responders, the Al King Family Foundation donated $367,600 to FF Fire & Rescue in rural Maine to fund a critical new ambulance. This gift exemplifies our commitment to supporting infrastructure that saves lives in underserved communities.</p>
+    </section>
+
+    <!-- 2026 Charitable Giving Overview -->
+    <section>
+      <h2>2026 Charitable Giving</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">$2.1M+</div>
+          <div class="stat-label">Total Charitable Giving</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">$1.04M</div>
+          <div class="stat-label">Private Foundation Grants</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">$1.06M</div>
+          <div class="stat-label">Legacy Income Fund</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Charitable Organizations</div>
+        </div>
+      </div>
+      <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.95rem;">Total 2026 Charitable Giving: $2,102,342 across all giving vehicles</p>
+    </section>
+
+    <!-- Impact Categories -->
+    <section>
+      <h2>Areas of Impact</h2>
+
+      <div class="category-section">
+        <h3>Health & Human Services</h3>
+        <ul class="category-list">
+          <li>Emergency medical services and rural healthcare infrastructure</li>
+          <li>Health education and preventive care initiatives</li>
+          <li>Medical research and disease prevention</li>
+          <li>Mental health and wellness programs</li>
+          <li>Substance abuse treatment and recovery support</li>
+        </ul>
+      </div>
+
+      <div class="category-section">
+        <h3>Veterans & Community</h3>
+        <ul class="category-list">
+          <li>Military family support and veterans' services</li>
+          <li>Transition assistance and employment programs</li>
+          <li>Community development and local infrastructure</li>
+          <li>Emergency responder support and recognition</li>
+          <li>Public safety initiatives and community resilience</li>
+        </ul>
+      </div>
+
+      <div class="category-section">
+        <h3>Education & Environment</h3>
+        <ul class="category-list">
+          <li>Higher education scholarships and student support</li>
+          <li>K-12 educational excellence and opportunity</li>
+          <li>Environmental conservation and sustainability</li>
+          <li>Rural development and community prosperity</li>
+          <li>Science, technology, and vocational education</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Entity Information -->
+    <section class="about-section" style="margin-top: 4rem;">
+      <h3>Foundation Structure</h3>
+      <p>The Al King Family Foundation is organized as a Delaware LLC, combining the governance flexibility of a limited liability company with the philanthropic mission of a family foundation. This structure enables efficient grant-making, strategic planning, and coordinated charitable impact across all focus areas.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office Â· Real Estate Â· Foundation Â· Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
