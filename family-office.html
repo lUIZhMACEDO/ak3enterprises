@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK3 Family Office - Private Wealth Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="family-office.html" class="active">Family Office</a></li>
+        <li><a href="foundation.html">Foundation</a></li>
+        <li><a href="planning.html">Planning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AK3 FAMILY OFFICE</h1>
+      <div class="hero-tagline">ak3familyoffice.com</div>
+      <p>Comprehensive private wealth management and administrative services for the Al King family, providing unified oversight and coordination across all family assets and enterprises.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section class="about-section">
+      <h3>About AK3 Family Office</h3>
+      <p>AK3 Family Office LLC provides comprehensive private wealth management and administrative services for the Al King family. We serve as the operational hub that coordinates all aspects of the family's financial life, from investment management and real estate oversight to tax planning and philanthropic initiatives.</p>
+      <p style="margin-top: 1rem;">Our family office approach ensures seamless integration across all family enterprises, enabling strategic decision-making and unified financial governance.</p>
+    </section>
+
+    <!-- Services Grid -->
+    <section>
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Wealth Management</h3>
+          <p>Investment oversight, asset allocation strategies, and comprehensive financial reporting to optimize family wealth across all holdings and market conditions.</p>
+        </div>
+        <div class="service-card">
+          <h3>Administrative Services</h3>
+          <p>Entity management, compliance oversight, record-keeping, and administrative coordination across all family entities and business operations.</p>
+        </div>
+        <div class="service-card">
+          <h3>Real Estate Oversight</h3>
+          <p>Active supervision and strategic management of the AK3 Properties portfolio, ensuring operational efficiency and long-term asset appreciation.</p>
+        </div>
+        <div class="service-card">
+          <h3>Tax & Accounting</h3>
+          <p>EIN management, entity tax filings, coordination with CPAs and tax advisors, and proactive tax planning strategies across all entities.</p>
+        </div>
+        <div class="service-card">
+          <h3>Foundation Support</h3>
+          <p>Administrative and operational support for the Al King Family Foundation, enabling strategic philanthropic impact across charitable sectors.</p>
+        </div>
+        <div class="service-card">
+          <h3>Strategic Planning</h3>
+          <p>Coordination with AK3 Planning LLC to align estate planning, structure optimization, and tax strategies with family objectives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private Note -->
+    <section style="text-align: center; margin-top: 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%); border-radius: 8px;">
+      <h3 style="color: #666; font-size: 1.25rem; margin-bottom: 1rem;">Private Wealth Management</h3>
+      <p style="color: #999; font-size: 1rem;">Services provided by appointment only. For inquiries, please use our contact form.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office Â· Real Estate Â· Foundation Â· Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
