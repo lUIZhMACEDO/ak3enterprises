@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK3 Enterprises - Family Office Â· Real Estate Â· Foundation Â· Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="foundation.html">Foundation</a></li>
+        <li><a href="planning.html">Planning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AK3 ENTERPRISES</h1>
+      <div class="hero-tagline">FAMILY OFFICE Â· REAL ESTATE Â· FOUNDATION Â· PLANNING</div>
+      <p>AK3 Enterprises serves as the unified digital home for Al King III's portfolio of companies â a gateway to our properties, family office, foundation, and planning services.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h2>Our Services</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>AK3 Properties</h3>
+          <p>Professional management of a diverse Connecticut real estate portfolio featuring carefully selected properties for long-term value and stability.</p>
+          <a href="properties.html" class="btn">Explore Properties</a>
+        </div>
+        <div class="card">
+          <h3>AK3 Family Office</h3>
+          <p>Comprehensive private wealth management and administrative services for the Al King family, coordinating all financial and personal assets.</p>
+          <a href="family-office.html" class="btn">Learn More</a>
+        </div>
+        <div class="card">
+          <h3>Al King Family Foundation</h3>
+          <p>Dedicated to philanthropic impact through strategic charitable giving across health, education, veterans' causes, and community development.</p>
+          <a href="foundation.html" class="btn">Our Impact</a>
+        </div>
+        <div class="card">
+          <h3>AK3 Planning</h3>
+          <p>Expert strategic planning services specializing in estate planning, tax strategy, and organizational structure optimization.</p>
+          <a href="planning.html" class="btn">Planning Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office Â· Real Estate Â· Foundation Â· Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Set active link based on current page
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop() ||
+          (window.location.pathname.endsWith('/') && link.getAttribute('href') === 'index.html')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
