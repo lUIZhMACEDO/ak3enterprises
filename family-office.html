@@ -1,124 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AK3 Family Office - Private Wealth Management</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK3 Family Office - Comprehensive Private Wealth Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2C3E50;
+            background-color: #F7F9FB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #FFFFFF;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #2C3E50;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #A8B5C5;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.4rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: #2C3E50;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links.mobile-open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #FFFFFF;
+            padding: 1.5rem;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2C3E50 0%, #3D5063 100%);
+            color: #FFFFFF;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #A8B5C5;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #E8EBF0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2C3E50;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: #4A5F7F;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                margin: 2.5rem auto;
+            }
+
+            .about h2 {
+                font-size: 1.8rem;
+            }
+
+            .about p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Services Grid */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .services h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2C3E50;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            padding: 2.5rem;
+            border-left: 4px solid #A8B5C5;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 20px rgba(44, 62, 80, 0.12);
+            border-left-color: #2C3E50;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #4A5F7F;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                margin: 2.5rem auto;
+            }
+
+            .services h2 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Private Wealth Management Note */
+        .wealth-note {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background-color: #FFFFFF;
+            border-top: 3px solid #A8B5C5;
+            border-bottom: 3px solid #A8B5C5;
+            text-align: center;
+        }
+
+        .wealth-note h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: #2C3E50;
+        }
+
+        .wealth-note p {
+            font-size: 1.05rem;
+            color: #4A5F7F;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .wealth-note {
+                margin: 2rem auto;
+                padding: 1.5rem;
+            }
+
+            .wealth-note h3 {
+                font-size: 1.2rem;
+            }
+
+            .wealth-note p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50;
+            color: #FFFFFF;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            color: #A8B5C5;
+        }
+
+        footer .copyright {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #A8B5C5;
+            color: #A8B5C5;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 2rem 1.5rem;
+                margin-top: 2.5rem;
+            }
+
+            footer h4 {
+                font-size: 1.1rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-logo">AK3 FAMILY OFFICE</div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">AK3 Enterprises</a></li>
-        <li><a href="properties.html">Properties</a></li>
-        <li><a href="family-office.html" class="active">Family Office</a></li>
-        <li><a href="foundation.html">Foundation</a></li>
-        <li><a href="planning.html">Planning</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">AK3 FAMILY OFFICE</a>
+        <div class="nav-links">
+            <a href="index.html">AK3 Enterprises</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AK3 FAMILY OFFICE</h1>
-      <div class="hero-tagline">ak3familyoffice.com</div>
-      <p>Comprehensive private wealth management and administrative services for the Al King family, providing unified oversight and coordination across all family assets and enterprises.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>AK3 FAMILY OFFICE</h1>
+        <p class="tagline">ak3familyoffice.com</p>
+        <p>Comprehensive private wealth management and strategic advisory services tailored to the needs of discerning families and individuals.</p>
+    </section>
 
-  <!-- Main Content -->
-  <main>
     <!-- About Section -->
-    <section class="about-section">
-      <h3>About AK3 Family Office</h3>
-      <p>AK3 Family Office provides comprehensive private wealth management and administrative services for the Al King family. We serve as the operational hub that coordinates all aspects of the family's financial life, from investment management and real estate oversight to tax planning and philanthropic initiatives.</p>
-      <p style="margin-top: 1rem;">Our family office approach ensures seamless integration across all family enterprises, enabling strategic decision-making and unified financial governance.</p>
+    <section class="about">
+        <h2>About Our Family Office</h2>
+        <p>AK3 Family Office represents a commitment to delivering institutional-quality wealth management with the personalized attention that distinguishes private advisory. We understand the complexities of managing significant assets, and we bring decades of combined expertise to every aspect of your financial life.</p>
+        <p>Our approach combines rigorous financial discipline with a deep understanding of family dynamics, governance, and long-term wealth preservation. Whether managing investments, navigating tax complexities, or coordinating administrative functions, we serve as a trusted partner in building and sustaining generational wealth.</p>
     </section>
 
-    <!-- Services Grid -->
-    <section>
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Wealth Management</h3>
-          <p>Investment oversight, asset allocation strategies, and comprehensive financial reporting to optimize family wealth across all holdings and market conditions.</p>
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Wealth Management</h3>
+                <p>Strategic investment management and portfolio oversight designed to achieve your long-term financial objectives while managing risk appropriately for your circumstances.</p>
+            </div>
+            <div class="service-card">
+                <h3>Administrative Services</h3>
+                <p>Comprehensive administration including bill payment, expense management, and coordination of financial operations, freeing you to focus on what matters most.</p>
+            </div>
+            <div class="service-card">
+                <h3>Real Estate Oversight</h3>
+                <p>Professional management and coordination of real estate portfolios, including property administration, maintenance coordination, and strategic positioning.</p>
+            </div>
+            <div class="service-card">
+                <h3>Tax &amp; Accounting</h3>
+                <p>Advanced tax planning and accounting services to optimize your tax position, ensure compliance, and maximize the efficiency of your wealth structure.</p>
+            </div>
+            <div class="service-card">
+                <h3>Foundation Support</h3>
+                <p>Guidance and administrative support for family foundations, including governance, compliance, grant management, and impact strategy.</p>
+            </div>
+            <div class="service-card">
+                <h3>Strategic Planning</h3>
+                <p>Comprehensive wealth strategy development including succession planning, family governance, and long-term wealth preservation objectives.</p>
+            </div>
         </div>
-        <div class="service-card">
-          <h3>Administrative Services</h3>
-          <p>Entity management, compliance oversight, record-keeping, and administrative coordination across all family entities and business operations.</p>
-        </div>
-        <div class="service-card">
-          <h3>Real Estate Oversight</h3>
-          <p>Active supervision and strategic management of the AK3 Properties portfolio, ensuring operational efficiency and long-term asset appreciation.</p>
-        </div>
-        <div class="service-card">
-          <h3>Tax & Accounting</h3>
-          <p>EIN management, entity tax filings, coordination with CPAs and tax advisors, and proactive tax planning strategies across all entities.</p>
-        </div>
-        <div class="service-card">
-          <h3>Foundation Support</h3>
-          <p>Administrative and operational support for the Al King Family Foundation, enabling strategic philanthropic impact across charitable sectors.</p>
-        </div>
-        <div class="service-card">
-          <h3>Strategic Planning</h3>
-          <p>Coordination with AK3 Planning LLC to align estate planning, structure optimization, and tax strategies with family objectives.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- Private Note -->
-    <section style="text-align: center; margin-top: 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%); border-radius: 8px;">
-      <h3 style="color: #666; font-size: 1.25rem; margin-bottom: 1rem;">Private Wealth Management</h3>
-      <p style="color: #999; font-size: 1rem;">Services provided by appointment only. For inquiries, please use our contact form.</p>
+    <!-- Private Wealth Management Note -->
+    <section class="wealth-note">
+        <h3>Private Wealth Management</h3>
+        <p>All services available by appointment only. Contact us to discuss your family's unique needs.</p>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">AK3 FAMILY OFFICE</div>
-      <div class="footer-tagline">A division of AK3 Enterprises</div>
-      <div class="footer-website">ak3familyoffice.com</div>
-      <div class="footer-copyright">&copy; 2026 AK3 Family Office. All rights reserved.</div>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <h4>AK3 FAMILY OFFICE</h4>
+        <p>A division of AK3 Enterprises</p>
+        <p>ak3familyoffice.com</p>
+        <div class="copyright">
+            &copy; 2026 AK3 Family Office. All rights reserved.
+        </div>
+    </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    <script>
+        // Mobile hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('mobile-open');
+        });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  </script>
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('mobile-open');
+            });
+        });
+    </script>
 </body>
 </html>
