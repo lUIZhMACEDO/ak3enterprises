@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 Ivanhoe Lane, Westport CT 06880 - AK3 Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../properties.html" class="active">Properties</a></li>
+        <li><a href="../family-office.html">Family Office</a></li>
+        <li><a href="../foundation.html">Foundation</a></li>
+        <li><a href="../planning.html">Planning</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Property Detail -->
+  <main style="padding-top: 2rem;">
+    <div class="back-link">
+      <a href="../properties.html">&larr; Back to Properties</a>
+    </div>
+
+    <div class="property-gallery">
+      <div class="gallery-main">
+        <img src="https://photos.zillowstatic.com/fp/890da5f13925cab3e64fd5a92d51b765-cc_ft_960.jpg" alt="4 Ivanhoe Lane, Westport CT 06880" id="mainPhoto">
+      </div>
+    </div>
+
+    <!-- Property Info -->
+    <div class="property-detail-header">
+      <div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">4 Ivanhoe Lane, Westport CT 06880</h1>
+        <div class="property-status status-available">AVAILABLE</div>
+      </div>
+      <div class="rent-badge">
+        <span class="rent-label">Est. Rent</span>
+        <span class="rent-value">$7,550/mo</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="detail-stats">
+      <div class="detail-stat"><span class="detail-stat-value">5</span><span>Bedrooms</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">4</span><span>Bathrooms</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">2,582</span><span>Sq Ft</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">0.51</span><span>Acres</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">1970</span><span>Year Built</span></div>
+    </div>
+
+    <!-- Description -->
+    <div class="property-description">
+      <h2 style="border: none; text-align: left; display: block; font-size: 1.5rem;">About This Property</h2>
+      <p>Spacious 5-bedroom, 4-bath home on a quiet cul-de-sac in Westport. This 2,582 square foot residence sits on just over half an acre with mature landscaping and excellent privacy. Built in 1970, the home offers a flexible floor plan with generous bedrooms and multiple full baths. Ideally situated in a family-friendly neighborhood with easy access to schools, parks, and downtown Westport.</p>
+    </div>
+
+    <!-- LLC Info -->
+    <div class="property-llc-info">
+      <p><strong>Managed by:</strong> 4 Ivanhoe LLC &mdash; a Connecticut LLC under AK3 Properties LLC</p>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="../contact.html" class="btn btn-gold">Inquire About This Property</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office &middot; Real Estate &middot; Foundation &middot; Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+  </html>
