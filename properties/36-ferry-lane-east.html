@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>36 Ferry Lane East, Westport CT 06880 - AK3 Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AK3 ENTERPRISES</div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../properties.html" class="active">Properties</a></li>
+        <li><a href="../family-office.html">Family Office</a></li>
+        <li><a href="../foundation.html">Foundation</a></li>
+        <li><a href="../planning.html">Planning</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Property Detail -->
+  <main style="padding-top: 2rem;">
+    <div class="back-link">
+      <a href="../properties.html">&larr; Back to Properties</a>
+    </div>
+
+    <div class="property-gallery">
+      <div class="gallery-main">
+        <img src="https://photos.zillowstatic.com/fp/d8dc898c842f51ccebe2afd0286348ef-cc_ft_960.jpg" alt="36 Ferry Lane East, Westport CT 06880" id="mainPhoto">
+        <button class="gallery-nav gallery-prev" onclick="prevPhoto()">&lsaquo;</button>
+        <button class="gallery-nav gallery-next" onclick="nextPhoto()">&rsaquo;</button>
+        <div class="gallery-counter"><span id="photoIndex">1</span> / 2</div>
+      </div>
+      <div class="gallery-thumbs">
+        <img src="https://photos.zillowstatic.com/fp/d8dc898c842f51ccebe2afd0286348ef-cc_ft_960.jpg" alt="Photo 1" class="gallery-thumb active" onclick="changePhoto(this, 0)">
+        <img src="https://photos.zillowstatic.com/fp/d42484191915ff878b7b0e5329b4753d-cc_ft_960.jpg" alt="Photo 2" class="gallery-thumb" onclick="changePhoto(this, 1)">
+      </div>
+    </div>
+
+    <!-- Property Info -->
+    <div class="property-detail-header">
+      <div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">36 Ferry Lane East, Westport CT 06880</h1>
+        <div class="property-status status-tenant">TENANT IN PLACE</div>
+      </div>
+      <div class="rent-badge">
+        <span class="rent-label">Est. Rent</span>
+        <span class="rent-value">$5,940/mo</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="detail-stats">
+      <div class="detail-stat"><span class="detail-stat-value">3</span><span>Bedrooms</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">2</span><span>Bathrooms</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">1,500</span><span>Sq Ft</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">0.53</span><span>Acres</span></div>
+            <div class="detail-stat"><span class="detail-stat-value">1930</span><span>Year Built</span></div>
+    </div>
+
+    <!-- Description -->
+    <div class="property-description">
+      <h2 style="border: none; text-align: left; display: block; font-size: 1.5rem;">About This Property</h2>
+      <p>Charming 3-bedroom, 2-bath home dating back to 1930, set on over half an acre in the sought-after Ferry Lane neighborhood. This 1,500 square foot residence offers classic New England character with a generous lot providing excellent outdoor living space. Located in a quiet, tree-lined setting with convenient access to Compo Beach and downtown Westport.</p>
+    </div>
+
+    <!-- LLC Info -->
+    <div class="property-llc-info">
+      <p><strong>Managed by:</strong> 36 Ferry Lane East LLC &mdash; a Connecticut LLC under AK3 Properties LLC</p>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="../contact.html" class="btn btn-gold">Inquire About This Property</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">AK3 ENTERPRISES</div>
+      <div class="footer-tagline">Family Office &middot; Real Estate &middot; Foundation &middot; Planning</div>
+      <div class="footer-website">ak3enterprises.com</div>
+      <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+  <script>
+    const photos = ["https://photos.zillowstatic.com/fp/d8dc898c842f51ccebe2afd0286348ef-cc_ft_960.jpg", "https://photos.zillowstatic.com/fp/d42484191915ff878b7b0e5329b4753d-cc_ft_960.jpg"];
+    let currentIndex = 0;
+    function changePhoto(thumb, index) {
+      currentIndex = index;
+      document.getElementById('mainPhoto').src = photos[index];
+      document.getElementById('photoIndex').textContent = index + 1;
+      document.querySelectorAll('.gallery-thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+      });
+    }
+    function nextPhoto() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      changePhoto(null, currentIndex);
+    }
+    function prevPhoto() {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      changePhoto(null, currentIndex);
+    }
+  </script>
+</body>
+  </html>
