@@ -793,3 +793,242 @@ footer {
     width: 100%;
   }
 }
+
+/* Property Detail Page */
+.back-link {
+  margin-bottom: 1.5rem;
+}
+
+.back-link a {
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-link a:hover {
+  color: var(--gold);
+}
+
+/* Photo Gallery */
+.property-gallery {
+  margin-bottom: 2rem;
+}
+
+.gallery-main {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--light-gray);
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 39, 97, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  padding: 0;
+  line-height: 1;
+}
+
+.gallery-nav:hover {
+  background: rgba(30, 39, 97, 0.95);
+  color: white;
+}
+
+.gallery-prev { left: 1rem; }
+.gallery-next { right: 1rem; }
+
+.gallery-counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(30, 39, 97, 0.7);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.gallery-thumbs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.gallery-thumb {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, border-color 0.3s;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.gallery-thumb:hover {
+  opacity: 0.9;
+}
+
+.gallery-thumb.active {
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+/* Property Detail Header */
+.property-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.rent-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--light-gray);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--gold);
+}
+
+.rent-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.rent-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Detail Stats */
+.detail-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+}
+
+.detail-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.detail-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.detail-stat span:last-child {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Property Description */
+.property-description {
+  margin-bottom: 2rem;
+}
+
+.property-description p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.property-llc-info {
+  background: var(--light-gray);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.property-llc-info p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Property card link wrapper */
+a.property-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+a.property-card-link:hover .property-card {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--gold);
+}
+
+a.property-card-link .property-card:hover {
+  transform: none;
+}
+
+/* Rent chip on card */
+.property-rent {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+
+.property-rent span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .gallery-main img {
+    height: 300px;
+  }
+  .property-detail-header {
+    flex-direction: column;
+  }
+  .detail-stats {
+    gap: 1rem;
+    justify-content: center;
+  }
+  .gallery-thumbs {
+    display: none;
+  }
+}
