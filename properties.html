@@ -1,236 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AK3 Properties - Real Estate Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK3 Properties - Connecticut Rental Properties</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1B365D;
+            background-color: #FAF8F5;
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #e0dcd5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1B365D;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1B365D;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #C9A84C;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #1B365D;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: #FFFFFF;
+                padding: 20px 30px;
+                gap: 20px;
+                display: none;
+                box-shadow: 0 4px 6px rgba(27, 54, 93, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1B365D 0%, #2a4a7c 100%);
+            color: #FFFFFF;
+            padding: 120px 30px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .hero .tagline {
+            font-size: 18px;
+            color: #C9A84C;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .tagline {
+                font-size: 16px;
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background-color: #FFFFFF;
+            padding: 80px 30px;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1B365D;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 3px;
+            background-color: #C9A84C;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 60px 20px;
+            }
+
+            .about h2 {
+                font-size: 36px;
+            }
+        }
+
+        /* PROPERTIES SECTION */
+        .properties {
+            background-color: #FAF8F5;
+            padding: 80px 30px;
+        }
+
+        .properties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .properties h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1B365D;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .properties-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .property-card {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(27, 54, 93, 0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(27, 54, 93, 0.15);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .property-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-address {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1B365D;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0dcd5;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .property-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-detail-label {
+            font-weight: 600;
+            color: #C9A84C;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .property-detail-value {
+            font-size: 14px;
+            color: #1B365D;
+        }
+
+        .property-info {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .property-info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .property-info-label {
+            color: #666;
+        }
+
+        .property-info-value {
+            font-weight: 600;
+            color: #1B365D;
+        }
+
+        .property-status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .status-available {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-tenant {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+
+        @media (max-width: 768px) {
+            .properties {
+                padding: 60px 20px;
+            }
+
+            .properties h2 {
+                font-size: 36px;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #1B365D;
+            color: #FFFFFF;
+            padding: 60px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-logo">AK3 PROPERTIES</div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">AK3 Enterprises</a></li>
-        <li><a href="properties.html" class="active">Properties</a></li>
-        <li><a href="family-office.html">Family Office</a></li>
-        <li><a href="foundation.html">Foundation</a></li>
-        <li><a href="planning.html">Planning</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">AK3 PROPERTIES</a>
+            <div class="hamburger" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-links" id="navMenu">
+                <a href="index.html">AK3 Enterprises</a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AK3 PROPERTIES</h1>
-      <div class="hero-tagline">ak3properties.com</div>
-      <p>Professional management of Connecticut rental properties with a focus on long-term value and community.</p>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main>
-    <!-- About Section -->
-    <section class="about-section">
-      <h3>About AK3 Properties</h3>
-      <p>AK3 Properties manages a carefully curated portfolio of Connecticut rental properties. Our portfolio represents decades of selective real estate acquisition in the Connecticut market, with a focus on long-term value and community.</p>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AK3 PROPERTIES</h1>
+            <p class="tagline">ak3properties.com</p>
+            <p>Discover premium rental properties in Connecticut's most desirable communities. Our carefully curated portfolio features exceptional homes designed for discerning tenants seeking luxury, comfort, and prime locations.</p>
+        </div>
     </section>
 
-    <!-- Properties Grid -->
-    <section>
-      <h2>Properties Portfolio</h2>
-      <div class="cards-grid">
-
-        <!-- Property 1: 18 Bridge St -->
-        <a href="properties/18-bridge-st.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/a7896df6edd137a31fb6054c08b3a369-cc_ft_960.jpg" alt="18 Bridge St, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">18 Bridge St, Westport CT 06880</div>
-              <div class="property-status status-tenant">TENANT IN PLACE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">4</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">4</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">2,882</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">0.82</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$7,908/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 2: 222 Compo Road South -->
-        <a href="properties/222-compo-road.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/d939ec803061942dfe7db337c325758f-cc_ft_960.jpg" alt="222 Compo Road South, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">222 Compo Road South, Westport CT 06880</div>
-              <div class="property-status status-available">AVAILABLE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">4</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">5</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">4,449</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">1.05</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$9,015/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 3: 17 Ferry Lane -->
-        <a href="properties/17-ferry-lane.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/5ca77c53ec0895b608ae9f8d3b6f977d-cc_ft_960.jpg" alt="17 Ferry Lane, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">17 Ferry Lane, Westport CT 06880</div>
-              <div class="property-status status-tenant">TENANT IN PLACE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">6</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">4</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">3,800</span><span>Sqft</span></div>
-              </div>
-              <div class="property-rent">Contact for Pricing</div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 4: 187 Compo Road South -->
-        <a href="properties/187-compo-road.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/df800df39b984a7d4094cfe8d6f9a6c9-cc_ft_960.jpg" alt="187 Compo Road South, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">187 Compo Road South, Westport CT 06880</div>
-              <div class="property-status status-available">AVAILABLE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">4</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">4</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">4,403</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">0.33</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$8,181/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 5: 36 Ferry Lane East -->
-        <a href="properties/36-ferry-lane-east.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/d8dc898c842f51ccebe2afd0286348ef-cc_ft_960.jpg" alt="36 Ferry Lane East, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">36 Ferry Lane East, Westport CT 06880</div>
-              <div class="property-status status-tenant">TENANT IN PLACE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">3</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">2</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">1,500</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">0.53</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$5,940/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 6: 4 Ivanhoe Lane -->
-        <a href="properties/4-ivanhoe-lane.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/890da5f13925cab3e64fd5a92d51b765-cc_ft_960.jpg" alt="4 Ivanhoe Lane, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">4 Ivanhoe Lane, Westport CT 06880</div>
-              <div class="property-status status-available">AVAILABLE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">5</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">4</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">2,582</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">0.51</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$7,550/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 7: 38 Ferry Lane East -->
-        <a href="properties/38-ferry-lane-east.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/116e3ddca31e5dfe9e1ee1304c8c3b0e-cc_ft_960.jpg" alt="38 Ferry Lane East, Westport CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">38 Ferry Lane East, Westport CT 06880</div>
-              <div class="property-status status-tenant">TENANT IN PLACE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">3</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">2</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">2,000</span><span>Sqft</span></div>
-              </div>
-              <div class="property-rent">$6,422/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Property 8: 7 Calf Pasture -->
-        <a href="properties/7-calf-pasture.html" class="property-card-link">
-          <div class="property-card">
-            <img src="https://photos.zillowstatic.com/fp/70333f25b577530e82e5c1a4a9b77ea1-cc_ft_960.jpg" alt="7 Calf Pasture Beach Rd, Norwalk CT" class="property-image">
-            <div class="property-content">
-              <div class="property-address">7 Calf Pasture Beach Rd, Norwalk CT 06855</div>
-              <div class="property-status status-available">AVAILABLE</div>
-              <div class="property-stats">
-                <div class="stat"><span class="stat-value">4</span><span>Bed</span></div>
-                <div class="stat"><span class="stat-value">2</span><span>Bath</span></div>
-                <div class="stat"><span class="stat-value">2,224</span><span>Sqft</span></div>
-                <div class="stat"><span class="stat-value">0.36</span><span>Acres</span></div>
-              </div>
-              <div class="property-rent">$5,400/mo <span>Est. Rent</span></div>
-            </div>
-          </div>
-        </a>
-
-      </div>
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="about-container">
+            <div class="accent-line"></div>
+            <h2>About AK3 Properties</h2>
+            <p>AK3 Properties specializes in high-quality rental homes throughout Connecticut. Our portfolio encompasses meticulously maintained properties in sought-after neighborhoods, each selected for its distinctive character, exceptional amenities, and investment potential. We pride ourselves on maintaining the highest standards of property management and tenant relations.</p>
+            <p>With a focus on properties in Westport, Norwalk, and surrounding communities, we offer flexible leasing arrangements tailored to meet the diverse needs of our clientele.</p>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">AK3 PROPERTIES</div>
-      <div class="footer-tagline">A division of AK3 Enterprises</div>
-      <div class="footer-website">ak3properties.com</div>
-      <div class="footer-copyright">&copy; 2026 AK3 Properties. All rights reserved.</div>
-    </div>
-  </footer>
+    <!-- PROPERTIES SECTION -->
+    <section class="properties">
+        <div class="properties-container">
+            <h2>Available Properties</h2>
+            <p class="properties-subtitle">Explore our curated selection of Connecticut rental homes</p>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+            <div class="properties-grid">
+                <!-- Property 1 -->
+                <a href="properties/18-bridge-st.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/a7896df6edd137a31fb6054c08b3a369-cc_ft_960.jpg" alt="18 Bridge St, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">18 Bridge St<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">4 bed &middot; 4 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">2,882 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">0.82 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$7,908/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-tenant">Tenant In Place</span>
+                    </div>
+                </a>
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+                <!-- Property 2 -->
+                <a href="properties/222-compo-road.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/d939ec80306194dfe7db337c325758f-cc_ft_960.jpg" alt="222 Compo Road South, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">222 Compo Road South<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">4 bed &middot; 5 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">4,449 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">1.05 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$9,015/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-available">Available</span>
+                    </div>
+                </a>
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
+                <!-- Property 3 -->
+                <a href="properties/17-ferry-lane.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/5ca77c53ec0895b608ae9f8d3b6f977d-cc_ft_960.jpg" alt="17 Ferry Lane, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">17 Ferry Lane<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">6 bed &middot; 4 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">3,800 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Pricing:</span>
+                                <span class="property-info-value">Contact for Details</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-tenant">Tenant In Place</span>
+                    </div>
+                </a>
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  </script>
+                <!-- Property 4 -->
+                <a href="properties/187-compo-road.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/df800df39b984a7d4094cfe8d6f9a6c9-cc_ft_960.jpg" alt="187 Compo Road South, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">187 Compo Road South<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">4 bed &middot; 4 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">4,403 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">0.33 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$8,181/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-available">Available</span>
+                    </div>
+                </a>
+
+                <!-- Property 5 -->
+                <a href="properties/36-ferry-lane-east.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/d8dc898c842f51ccebe2afd0286348ef-cc_ft_960.jpg" alt="36 Ferry Lane East, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">36 Ferry Lane East<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">3 bed &middot; 2 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">1,500 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">0.53 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$5,940/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-tenant">Tenant In Place</span>
+                    </div>
+                </a>
+
+                <!-- Property 6 -->
+                <a href="properties/4-ivanhoe-lane.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/890da5f13925cab3e64fd5a92d51b765-cc_ft_960.jpg" alt="4 Ivanhoe Lane, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">4 Ivanhoe Lane<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">5 bed &middot; 4 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">2,582 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">0.51 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$7,550/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-available">Available</span>
+                    </div>
+                </a>
+
+                <!-- Property 7 -->
+                <a href="properties/38-ferry-lane-east.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/116e3ddca31e5dfe9e1ee1304c8c3b0e-cc_ft_960.jpg" alt="38 Ferry Lane East, Westport" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">38 Ferry Lane East<br>Westport, CT 06880</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">3 bed &middot; 2 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">2,000 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$6,422/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-tenant">Tenant In Place</span>
+                    </div>
+                </a>
+
+                <!-- Property 8 -->
+                <a href="properties/7-calf-pasture.html" class="property-card">
+                    <img src="https://photos.zillowstatic.com/fp/70333f25b577530e82e5c1a4a9b77ea1-cc_ft_960.jpg" alt="7 Calf Pasture Beach Rd, Norwalk" class="property-image">
+                    <div class="property-content">
+                        <div class="property-address">7 Calf Pasture Beach Rd<br>Norwalk, CT 06855</div>
+                        <div class="property-details">
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Bed &amp; Bath</span>
+                                <span class="property-detail-value">4 bed &middot; 2 bath</span>
+                            </div>
+                            <div class="property-detail-item">
+                                <span class="property-detail-label">Size</span>
+                                <span class="property-detail-value">2,224 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-info">
+                            <div class="property-info-row">
+                                <span class="property-info-label">Lot Size:</span>
+                                <span class="property-info-value">0.36 acres</span>
+                            </div>
+                            <div class="property-info-row">
+                                <span class="property-info-label">Rent:</span>
+                                <span class="property-info-value">$5,400/mo</span>
+                            </div>
+                        </div>
+                        <span class="property-status status-available">Available</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">AK3 PROPERTIES</div>
+                <p>A division of AK3 Enterprises</p>
+                <p>ak3properties.com</p>
+            </div>
+        </div>
+        <div class="footer-divider">
+            <div class="footer-bottom">
+                <p>&copy; 2026 AK3 Properties. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
