@@ -1,162 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Al King Family Foundation - Philanthropic Impact</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL KING FAMILY FOUNDATION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #FFFFFF;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #1A4731;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1A4731;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A4731;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #FFFFFF;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E5DFD5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1A4731;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1A4731;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D4A953;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #1A4731;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -7px);
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background-color: #FFFFFF;
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                display: none;
+                border-bottom: 1px solid #E5DFD5;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 1rem 0;
+                border-bottom: 1px solid #E5DFD5;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1A4731 0%, #2D6B4F 100%);
+            color: #FFFFFF;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: #FFFFFF;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #D4A953;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #F5F0E8;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+                min-height: 350px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-section {
+            background-color: #F5F0E8;
+            text-align: center;
+        }
+
+        .mission-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        /* Our Story Section */
+        .story-section {
+            background-color: #FFFFFF;
+        }
+
+        .story-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Landmark Gift Section */
+        .landmark-section {
+            background-color: #F5F0E8;
+        }
+
+        .gift-card {
+            background-color: #FFFFFF;
+            border-left: 5px solid #D4A953;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .gift-card h3 {
+            color: #1A4731;
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #D4A953;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .gift-year {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .gift-card p {
+            color: #555;
+        }
+
+        /* Giving Stats Section */
+        .stats-section {
+            background-color: #FFFFFF;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background-color: #F5F0E8;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            border-top: 4px solid #D4A953;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1A4731;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Impact Areas Section */
+        .impact-section {
+            background-color: #F5F0E8;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #1A4731;
+        }
+
+        .impact-card h3 {
+            color: #1A4731;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .impact-card li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .impact-card li:before {
+            content: "&#x2022;";
+            color: #D4A953;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A4731;
+            color: #F5F0E8;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #0D2418;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D4A953;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-division {
+            color: #D4A953;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-website {
+            color: #F5F0E8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-copyright {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid #2D6B4F;
+            padding-top: 1.5rem;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-logo">AL KING FAMILY FOUNDATION</div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">AK3 Enterprises</a></li>
-        <li><a href="properties.html">Properties</a></li>
-        <li><a href="family-office.html">Family Office</a></li>
-        <li><a href="foundation.html" class="active">Foundation</a></li>
-        <li><a href="planning.html">Planning</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">AL KING FAMILY FOUNDATION</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">AK3 Enterprises</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AL KING FAMILY FOUNDATION</h1>
-      <div class="hero-tagline">alkingfoundation.org</div>
-      <p>Strategic philanthropy dedicated to creating lasting impact across health, education, veterans' causes, and community development initiatives.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AL KING FAMILY FOUNDATION</h1>
+            <p class="tagline">alkingfoundation.org</p>
+            <p>Advancing strategic philanthropy through meaningful grants and community partnerships. The AL King Family Foundation is dedicated to creating lasting positive impact in health, education, veterans&rsquo; services, and environmental conservation across rural and underserved communities.</p>
+        </div>
+    </section>
 
-  <!-- Main Content -->
-  <main>
     <!-- Mission Section -->
-    <section class="mission">
-      <h2>Our Mission</h2>
-      <p>The Al King Family Foundation is committed to advancing the quality of life and creating opportunities for communities in need, with particular focus on rural America where the King family's roots run deep.</p>
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <p>The AL King Family Foundation commits to strategic philanthropy that addresses critical needs in health and human services, supports our nation&rsquo;s veterans and communities, and strengthens education and environmental stewardship. Through thoughtful grant making and long-term partnerships, we work to build stronger, more resilient communities where all individuals can thrive.</p>
     </section>
 
-    <!-- Origin Story -->
-    <section class="about-section">
-      <h3>Our Story</h3>
-      <p>Al King III grew up in rural Maine, where close-knit communities and strong family values shaped his worldview. Those formative years instilled a deep commitment to giving back to the communities and causes that matter most. The Al King Family Foundation represents the realization of that commitment, channeling resources and energy toward meaningful change across multiple sectors.</p>
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <h2>Our Story</h2>
+        <p>The AL King Family Foundation was established by Al King III, whose formative years in rural Maine shaped a lifelong commitment to community welfare and grassroots impact. Growing up in Maine's remote communities, Al witnessed firsthand the challenges faced by rural populations&mdash;limited access to healthcare, educational disparities, and economic pressures that tested family and community resilience.</p>
+        <p>These early experiences instilled in Al a deep appreciation for the power of strategic giving and community investment. The Foundation carries forward this vision, working with local organizations and partners to address systemic challenges while honoring the values of self-reliance, mutual support, and stewardship that define rural America. Through deliberate philanthropy, the AL King Family Foundation seeks to replicate the kind of transformative support that can change lives and strengthen entire communities.</p>
     </section>
 
-    <!-- Landmark Gift 2025 -->
-    <section class="highlight-section">
-      <h3>2025 Landmark Gift</h3>
-      <p><strong>FF Fire & Rescue Ambulance Donation: $367,600</strong></p>
-      <p style="margin-top: 1rem;">In recognition of the essential services provided by rural emergency responders, the Al King Family Foundation donated $367,600 to FF Fire & Rescue in rural Maine to fund a critical new ambulance. This gift exemplifies our commitment to supporting infrastructure that saves lives in underserved communities.</p>
-    </section>
-
-    <!-- 2026 Charitable Giving Overview -->
-    <section>
-      <h2>2026 Charitable Giving</h2>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-number">$2.1M+</div>
-          <div class="stat-label">Total Charitable Giving</div>
+    <!-- Landmark Gift Section -->
+    <section class="landmark-section">
+        <h2>2025 Landmark Gift</h2>
+        <div class="gift-card">
+            <h3>FF Fire &amp; Rescue Ambulance Donation</h3>
+            <div class="gift-year">2025</div>
+            <div class="gift-amount">$367,600</div>
+            <p>Supporting emergency medical services in rural Maine, the AL King Family Foundation made a transformative contribution to FF Fire &amp; Rescue, enabling the procurement of a new ambulance and advanced emergency response equipment. This gift strengthens critical emergency services infrastructure in underserved rural communities, directly improving response times and patient outcomes for families across Maine.</p>
         </div>
-        <div class="stat-box">
-          <div class="stat-number">$1.04M</div>
-          <div class="stat-label">Private Foundation Grants</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">$1.06M</div>
-          <div class="stat-label">Legacy Income Fund</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">50+</div>
-          <div class="stat-label">Charitable Organizations</div>
-        </div>
-      </div>
-      <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.95rem;">Total 2026 Charitable Giving: $2,102,342 across all giving vehicles</p>
     </section>
 
-    <!-- Impact Categories -->
-    <section>
-      <h2>Areas of Impact</h2>
-
-      <div class="category-section">
-        <h3>Health & Human Services</h3>
-        <ul class="category-list">
-          <li>Emergency medical services and rural healthcare infrastructure</li>
-          <li>Health education and preventive care initiatives</li>
-          <li>Medical research and disease prevention</li>
-          <li>Mental health and wellness programs</li>
-          <li>Substance abuse treatment and recovery support</li>
-        </ul>
-      </div>
-
-      <div class="category-section">
-        <h3>Veterans & Community</h3>
-        <ul class="category-list">
-          <li>Military family support and veterans' services</li>
-          <li>Transition assistance and employment programs</li>
-          <li>Community development and local infrastructure</li>
-          <li>Emergency responder support and recognition</li>
-          <li>Public safety initiatives and community resilience</li>
-        </ul>
-      </div>
-
-      <div class="category-section">
-        <h3>Education & Environment</h3>
-        <ul class="category-list">
-          <li>Higher education scholarships and student support</li>
-          <li>K-12 educational excellence and opportunity</li>
-          <li>Environmental conservation and sustainability</li>
-          <li>Rural development and community prosperity</li>
-          <li>Science, technology, and vocational education</li>
-        </ul>
-      </div>
+    <!-- Giving Stats Section -->
+    <section class="stats-section">
+        <h2>2026 Charitable Giving</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-label">Total Charitable Giving</div>
+                <div class="stat-number">$2.1M+</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Private Foundation Grants</div>
+                <div class="stat-number">$1.04M</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Legacy Income Fund</div>
+                <div class="stat-number">$1.06M</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Organizations Supported</div>
+                <div class="stat-number">50+</div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.95rem;">Total 2026 Charitable Commitment: $2,102,342</p>
     </section>
 
-  </main>
+    <!-- Impact Areas Section -->
+    <section class="impact-section">
+        <h2>Areas of Impact</h2>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <h3>Health &amp; Human Services</h3>
+                <ul>
+                    <li>Emergency medical services</li>
+                    <li>Health education and public health</li>
+                    <li>Medical research and innovation</li>
+                    <li>Mental health and wellness programs</li>
+                    <li>Substance abuse treatment and recovery</li>
+                </ul>
+            </div>
+            <div class="impact-card">
+                <h3>Veterans &amp; Community</h3>
+                <ul>
+                    <li>Military family support programs</li>
+                    <li>Veteran transition assistance</li>
+                    <li>Community development initiatives</li>
+                    <li>Emergency responder support</li>
+                    <li>Public safety infrastructure</li>
+                </ul>
+            </div>
+            <div class="impact-card">
+                <h3>Education &amp; Environment</h3>
+                <ul>
+                    <li>Higher education scholarships</li>
+                    <li>K&ndash;12 educational excellence</li>
+                    <li>Environmental conservation</li>
+                    <li>Rural development programs</li>
+                    <li>STEM and vocational education</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">AL KING FAMILY FOUNDATION</div>
-      <div class="footer-tagline">A division of AK3 Enterprises</div>
-      <div class="footer-website">alkingfoundation.org</div>
-      <div class="footer-copyright">&copy; 2026 Al King Family Foundation. All rights reserved.</div>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">AL KING FAMILY FOUNDATION</div>
+            <div class="footer-division">A division of AK3 Enterprises</div>
+            <div class="footer-website">alkingfoundation.org</div>
+            <div class="footer-copyright">&copy; 2026 AL King Family Foundation. All rights reserved.</div>
+        </div>
+    </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  </script>
+        // Close menu when a link is clicked
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
