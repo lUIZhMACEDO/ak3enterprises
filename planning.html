@@ -1,132 +1,547 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AK3 Planning - Strategic Estate & Tax Planning</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK3 PLANNING - Strategic Estate & Tax Planning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7FB;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E8E6F0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(74, 25, 66, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #4A1942;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #4A1942;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #8E9AAF;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.4rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #4A1942;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #FFFFFF;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                padding: 1rem;
+                border-bottom: 1px solid #E8E6F0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                padding: 1rem 0;
+                border-bottom: 1px solid #E8E6F0;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4A1942 0%, #6B2D5A 50%, #5A1D4F 100%);
+            color: #FFFFFF;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #E8D7F0;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #F0E8F8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #8E9AAF;
+            color: #FFFFFF;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero-cta:hover {
+            background-color: #7A849F;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* About Section */
+        .about {
+            background-color: #FFFFFF;
+            padding: 4rem 2rem;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #4A1942;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .about p strong {
+            color: #4A1942;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #F8F7FB;
+            padding: 4rem 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            border: 2px solid #F0E8F8;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 25, 66, 0.05);
+        }
+
+        .service-card:hover {
+            border-color: #8E9AAF;
+            box-shadow: 0 8px 24px rgba(74, 25, 66, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #4A1942;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li:before {
+            content: '&bull;';
+            position: absolute;
+            left: 0;
+            color: #8E9AAF;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 3rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Approach Section */
+        .approach {
+            background-color: #FFFFFF;
+            padding: 4rem 2rem;
+            border-top: 4px solid #4A1942;
+        }
+
+        .approach-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .approach p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.2rem;
+        }
+
+        .approach p em {
+            color: #4A1942;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .approach {
+                padding: 3rem 1.5rem;
+            }
+
+            .approach p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4A1942;
+            color: #FFFFFF;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: #D4B8D8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-url {
+            font-size: 0.9rem;
+            color: #D4B8D8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: #A8909B;
+            border-top: 1px solid #6B2D5A;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-brand {
+                font-size: 1rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-logo">AK3 PLANNING</div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">AK3 Enterprises</a></li>
-        <li><a href="properties.html">Properties</a></li>
-        <li><a href="family-office.html">Family Office</a></li>
-        <li><a href="foundation.html">Foundation</a></li>
-        <li><a href="planning.html" class="active">Planning</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">AK3 PLANNING</a>
+            <ul class="nav-links">
+                <li><a href="index.html">AK3 Enterprises</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AK3 PLANNING</h1>
-      <div class="hero-tagline">ak3planning.com</div>
-      <p>Expert strategic planning services specializing in estate planning, tax strategy, and organizational structure optimization for complex family and business situations.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AK3 PLANNING</h1>
+            <p class="tagline">ak3planning.com</p>
+            <p>Strategic estate and tax planning designed to preserve wealth, optimize structure, and align your financial legacy with your family&rsquo;s values and long-term goals.</p>
+            <a href="#services" class="hero-cta">Explore Our Services</a>
+        </div>
+    </section>
 
-  <!-- Main Content -->
-  <main>
     <!-- About Section -->
-    <section class="about-section">
-      <h3>About AK3 Planning</h3>
-      <p>AK3 Planning serves as the strategic planning arm of Al King III's portfolio, coordinating comprehensive planning across estate structure, tax optimization, and entity management. Our services integrate seamlessly with AK3 Family Office to ensure all strategic recommendations are implemented effectively and maintained over time.</p>
+    <section class="about">
+        <div class="about-container">
+            <h2 class="section-title">About AK3 Planning</h2>
+            <p>AK3 Planning is the <strong>strategic planning arm</strong> of AK3 Enterprises, dedicated to providing sophisticated guidance on estate planning, tax optimization, and wealth structure. We help families and enterprises navigate complex financial landscapes with clarity and precision.</p>
+            <p>Our approach combines <strong>technical expertise</strong> with a deep understanding of your unique circumstances, ensuring that planning recommendations serve both your immediate needs and your long-term vision.</p>
+        </div>
     </section>
 
     <!-- Services Section -->
-    <section>
-      <h2>Planning Services</h2>
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Planning Services</h2>
+            <div class="services-grid">
+                <!-- Estate Planning Card -->
+                <div class="service-card">
+                    <h3>Estate Planning</h3>
+                    <ul>
+                        <li>Revocable &amp; Irrevocable Trust Strategy</li>
+                        <li>Beneficiary Designation Review</li>
+                        <li>Wealth Transfer Planning</li>
+                        <li>Probate Avoidance</li>
+                    </ul>
+                </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-        <!-- Estate Planning -->
-        <div class="service-card">
-          <h3>Estate Planning</h3>
-          <div class="category-list" style="margin: 0;">
-            <li>Revocable & Irrevocable Trust Strategy</li>
-            <li>Beneficiary Designation Review</li>
-            <li>Wealth Transfer Planning</li>
-            <li>Probate Avoidance</li>
-          </div>
-        </div>
+                <!-- Structure Optimization Card -->
+                <div class="service-card">
+                    <h3>Structure Optimization</h3>
+                    <ul>
+                        <li>LLC Formation &amp; Management</li>
+                        <li>Wyoming Purpose Trust</li>
+                        <li>Dynasty Trust Evaluation</li>
+                        <li>Private Family Trust Company</li>
+                    </ul>
+                </div>
 
-        <!-- Structure Optimization -->
-        <div class="service-card">
-          <h3>Structure Optimization</h3>
-          <div class="category-list" style="margin: 0;">
-            <li>LLC Formation & Management</li>
-            <li>Wyoming Purpose Trust</li>
-            <li>Dynasty Trust Evaluation</li>
-            <li>Private Family Trust Company</li>
-          </div>
+                <!-- Tax Strategy Card -->
+                <div class="service-card">
+                    <h3>Tax Strategy</h3>
+                    <ul>
+                        <li>Entity-Level Tax Planning</li>
+                        <li>Trust Tax ID Management</li>
+                        <li>Investment Titling Strategy</li>
+                        <li>Multi-State Entity Compliance</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- Tax Strategy -->
-        <div class="service-card">
-          <h3>Tax Strategy</h3>
-          <div class="category-list" style="margin: 0;">
-            <li>Entity-Level Tax Planning</li>
-            <li>Trust Tax ID Management</li>
-            <li>Investment Titling Strategy</li>
-            <li>Multi-State Entity Compliance</li>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Approach Section -->
-    <section class="highlight-section">
-      <h3>Our Approach</h3>
-      <p>We believe that effective planning requires understanding not just the technical aspects of trusts, entities, and tax law, but also the family's values, goals, and long-term vision. Our planning services are tailored to each client's unique situation, coordinating with legal counsel, tax advisors, and financial professionals to ensure comprehensive, integrated strategies.</p>
+    <section class="approach">
+        <div class="approach-container">
+            <h2 class="section-title">Our Approach</h2>
+            <p>Effective planning transcends spreadsheets and legal documents. <em>It requires understanding both the technical mechanics and the human dimensions of wealth&mdash;family values, legacy intentions, and generational goals.</em></p>
+            <p>At AK3 Planning, we listen first, analyze thoroughly, and recommend strategies that are not only tax-efficient and legally sound, but also aligned with what matters most to you and your family. We serve as your intellectual partner in building a financial structure that endures.</p>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">AK3 PLANNING</div>
-      <div class="footer-tagline">A division of AK3 Enterprises</div>
-      <div class="footer-website">ak3planning.com</div>
-      <div class="footer-copyright">&copy; 2026 AK3 Planning. All rights reserved.</div>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">AK3 PLANNING</div>
+            <div class="footer-tagline">A division of AK3 Enterprises</div>
+            <div class="footer-url">ak3planning.com</div>
+            <div class="footer-copyright">&copy; 2026 AK3 Enterprises. All rights reserved.</div>
+        </div>
+    </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      });
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  </script>
+            // Close menu when a link is clicked
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
